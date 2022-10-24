@@ -19,6 +19,7 @@
   "homepage": "https://github.com/eduardor0cha/guloseimas-da-val-mvc#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "express-handlebars": "^6.0.6"
+    "express-handlebars": "^6.0.6",
+    "mongoose": "^6.6.7"
   }
 }
