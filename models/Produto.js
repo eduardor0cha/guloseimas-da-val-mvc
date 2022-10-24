@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { boolean } = require("webidl-conversions");
 const Schema = mongoose.Schema;
 
 const Produto = new Schema({
@@ -24,7 +23,7 @@ const Produto = new Schema({
         required: true
     },
     exibirAoCliente: {
-        type: boolean,
+        type: Schema.Types.boolean,
         default: false
     },
     dataDeCriacao: {
