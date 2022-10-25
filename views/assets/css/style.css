@@ -1,3 +1,31 @@
 * {
-    background-color: rgb(255, 188, 188);
+    /* background-color: rgb(255, 188, 188); */
+    border: 1px solid black;
+    margin: 0;
+}
+
+/* nav */
+
+
+.nav-main{
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+    height: 5rem;
+}
+.nav-paginas, .nav-sobre{
+    display: flex;
+    flex: 50%;
+    margin-left: 2%;
+    margin-right: 2%;
+    word-spacing: 4px;
+    gap: 10%;
+}
+
+.nav-paginas{
+    justify-content: start;
+}
+
+.nav-sobre{
+    justify-content: end;
 }
