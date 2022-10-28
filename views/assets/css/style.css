@@ -1,18 +1,24 @@
 * {
     /* background-color: rgb(255, 188, 188); */
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 0;
+    text-align: center;
 }
 
-/* nav */
+body{
+    background-color: rgb(255, 188, 188);  
+}
 
+/* Navbar */
 
 .nav-main{
     display: flex;
     justify-content: space-between;
-    background-color: aqua;
+    background-color: grey;
     height: 5rem;
+    position: relative;
 }
+
 .nav-paginas, .nav-sobre{
     display: flex;
     flex: 50%;
@@ -20,6 +26,8 @@
     margin-right: 2%;
     word-spacing: 4px;
     gap: 10%;
+    padding: 2% 0;
+    font-size: 1rem;
 }
 
 .nav-paginas{
@@ -28,4 +36,32 @@
 
 .nav-sobre{
     justify-content: end;
+}
+
+/* Logo */
+
+.circulo-logo{
+    display: inline-block;
+    border-radius: 100%;
+    background-color: azure;
+    width: fit-content;
+    width: 8rem;
+    height: 7rem;
+    vertical-align: middle;
+    margin: -10rem;
+    position: relative;
+    border: 1px solid black;
+}
+
+/* Título do Site */
+
+.titulo{
+    margin-top: 5rem;
+    padding-bottom: 2rem;
+}
+
+.body{
+    background-color: aliceblue;
+    margin-left: 8.8rem;
+    margin-right: 8.8rem;
 }
