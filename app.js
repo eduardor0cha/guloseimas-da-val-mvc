@@ -2,6 +2,8 @@ const express = require("express");
 const { engine } = require("express-handlebars");
 const path = require("path");
 const app = express();
+const administrador = require("./routes/administrador");
+const usuario = require("./routes/usuario");
 const mongoose = require("mongoose");
 const banco = require("./config/banco");
 
@@ -41,6 +43,8 @@ app.get("/home", (req, res) => {
   res.render("home");
 });
 
+app.use("/admin", administrador);
+app.use("/user", usuario);
 /* RODAR SERVIDOR */
 const PORT = 9130;
 

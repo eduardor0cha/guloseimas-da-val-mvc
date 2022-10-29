@@ -1,0 +1,40 @@
+<form action="/admin/produtos/editar" method="POST">
+  <input
+    value="{{produto._id}}"
+    name="id"
+    type="hidden"
+    placeholder="CAMPO ID ESCONDIDO. INFORMAÇÃO PARA O BACKEND"
+  />
+  <input id="nome" value="{{produto.nome}}" type="text" placeholder="nome" />
+  <input
+    id="descricao"
+    value="{{produto.descricao}}"
+    type="text"
+    placeholder="descricao"
+  />
+  <input id="sabor" value="{{produto.sabor}}" type="text" placeholder="sabor" />
+  <input id="preco" value="{{produto.preco}}" type="text" placeholder="preco" />
+  <input
+    id="estoque"
+    value="{{produto.estoque}}"
+    type="text"
+    placeholder="estoque"
+  />
+  {{#if produto.exibirAoCliente}}
+    <input
+      id="exibirAoCliente"
+      value="{{produto.exibirAoCliente}}"
+      type="checkbox"
+      checked="checked"
+      placeholder="exibir ao cliente"
+    />
+  {{else}}
+    <input
+      id="exibirAoCliente"
+      value="{{produto.exibirAoCliente}}"
+      type="checkbox"
+      placeholder="exibir ao cliente"
+    />
+  {{/if}}
+  <button type="submit">salvar</button>
+</form>
