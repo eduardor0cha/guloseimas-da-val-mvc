@@ -1,0 +1,26 @@
+<main>
+  <style>
+    .grid-produtos { display: grid; grid-template-columns: 50% 50%; column-gap:
+    50px; } .card-produto { text-align: center; padding: 50px; background-color:
+    rgb(153, 51, 148);}
+  </style>
+
+  <h1>produtos</h1>
+  <div class="grid-produtos">
+    <div>
+      <a href="/admin/produtos/novo">
+        <p class="card-produto"> novo produto </p>
+      </a>
+    </div>
+    {{#each produtos}}
+      <div class="card-produto">
+        <h4>{{nome}}</h4>
+        <p>descrição: {{descricao}}</p>
+        <p>sabor: {{sabor}}</p>
+        <p>estoque: {{estoque}}</p>
+        <p>exibir ao cliente: {{exibirAoCliente}}</p>
+        <p>data de registro: {{dataDeCriacao}}</p>
+      </div>
+    {{/each}}
+  </div>
+</main>
