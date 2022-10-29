@@ -23,7 +23,7 @@ const Produto = new Schema({
     required: true,
   },
   exibirAoCliente: {
-    type: Schema.Types.boolean,
+    type: Boolean,
     default: false,
   },
   dataDeCriacao: {
