@@ -1,12 +1,20 @@
 * {
     /* background-color: rgb(255, 188, 188); */
-    /* border: 1px solid black; */
+    /* border: 1px solid black;  */
     margin: 0;
     text-align: center;
 }
 
 body{
     background-color: rgb(255, 188, 188);  
+    min-height: 100vh;
+    /* margin:0; 
+    display:flex;
+    flex-direction:column;  */
+}
+
+article{
+    flex:1; 
 }
 
 /* Navbar */
@@ -61,7 +69,39 @@ body{
 }
 
 .body{
-    background-color: aliceblue;
     margin-left: 8.8rem;
     margin-right: 8.8rem;
+}
+
+/* Footer */
+
+footer{
+    min-height:50px;
+}
+
+.footer-main{
+    display: block;
+    background-color: grey;
+    height: fit-content;
+    justify-content: center;
+}
+
+.footer-icons{
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+}
+
+.footer-addresses ul, li a{
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+
+.footer-baseboard{
+    
 }
