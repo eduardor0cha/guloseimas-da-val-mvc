@@ -68,8 +68,8 @@ function gerarArquivoDeBanco() {
 }
 
 /* RODAR SERVIDOR */
-const PORT = 9130;
+const PORTA = 9130;
 
-app.listen(PORT, () => {
-  console.log("O servidor está rodando na porta " + PORT);
+app.listen(PORTA, () => {
+  console.log("O servidor está rodando na porta " + PORTA);
 });
