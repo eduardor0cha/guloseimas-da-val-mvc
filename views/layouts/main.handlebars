@@ -5,11 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guloseimas da Val</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+    <style>
+        .centraliza {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .px-10 {
+            padding: 0 15% 0 15%;
+        }
+        @media (max-width: 1023px) {
+            .px-10 {
+                padding: 0 10% 0 10%;
+            }
+        }
+        @media (max-width: 767px) {
+            .px-10 {
+                padding: 0 1% 0 1%;
+            }
+        }
+    </style>
     {{>_navbar}}
-    {{{body}}}
+    <div class="px-10 centraliza">
+        {{{body}}}
+    </div>
     {{>_footer}}
 </body>
 </html>
