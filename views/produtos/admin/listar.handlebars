@@ -1,26 +1,115 @@
 <main>
   <style>
-    .grid-produtos { display: grid; grid-template-columns: 50% 50%; column-gap:
-    50px; } .card-produto { text-align: center; padding: 50px; background-color:
-    rgb(153, 51, 148);}
-  </style>
+    body{
+      background-color: rgb(255, 188, 188) ;
+    }
+    
+    .grid-produtos, h1{
+      width: 50%;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      column-gap: 10px;
+      text-align: center;
+      position: relative;
+      justify-content: center;
+      margin: auto ;
+      grid-row-gap: 1em;
+      padding: 5%;
+    }
 
-  <h1>produtos</h1>
+    .card-produto {
+      border-radius: 2%;
+      width: 100%;
+      background-image: linear-gradient(#ed4c76, transparent);
+      background-color: #ed4c87; 
+      color: #ffffff;
+    }
+
+    .card-produto>a{
+      color: #ffffff;
+      text-align: center;
+    }
+    
+    #add{
+      font-size: 5rem;  
+    }
+    
+    h1{
+      padding: 0; 
+      width: 50%; 
+      display: flex;
+      justify-content: center;
+      margin-bottom: -3% ;
+    }
+
+    .card-produto>img{
+      width: 100%;
+      height: 60%;
+    }
+
+    .info-produto{
+      margin: 2%;
+      height: 30%;
+      text-align: left;
+      display: grid;
+      grid-template-areas:
+        "head head"
+        "sabor sabor"
+        "descricao descricao"
+        "estoque  data";
+      }
+    
+    .info-produto>h4{
+      grid-area: head;
+      margin: 0;
+      font-size: 1.2rem; 
+      justify-content: start;
+    }
+
+    .info-produto>p{
+      font-size: 1rem; 
+    }
+
+    #d{
+      grid-area: descricao;
+    }
+
+    #s{
+      grid-area: sabor;
+    }
+
+    #e{
+      grid-area: estoque;
+    }
+
+    #dt{
+      grid-area: data;
+    }
+    
+  </style> 
+
+  <h1>Produtos</h1>
   <div class="grid-produtos">
-    <div>
+    <div class="card-produto">
       <a href="/admin/produtos/novo">
-        <p class="card-produto"> novo produto </p>
+        <p id="add">+</p>
+        <p class="novo-produto"> NOVO PRODUTO </p>
       </a>
     </div>
     {{#each produtos}}
       <div class="card-produto">
+        <img src="https://blog.pajaris.com.br/wp-content/uploads/2021/05/copo-da-felicidade-de-brownie-1024x1024.jpg" class="foto-produto">
+        <div class="info-produto">
+          <h4>{{nome}}</h4>
+          <p id="d">Descrição: {{descricao}}</p>
+          <p id="s">Sabor: {{sabor}}</p>
+          <p id="e">Estoque: {{estoque}} </p>
+          <p id="dt"> Registrado em: {{dataDeCriacao}}</p>
+          <p>exibir ao cliente: {{exibirAoCliente}}</p>
+        </div>
         <h4>{{nome}}</h4>
-        <p>descrição: {{descricao}}</p>
-        <p>sabor: {{sabor}}</p>
-        <p>estoque: {{estoque}}</p>
-        <p>exibir ao cliente: {{exibirAoCliente}}</p>
-        <p>data de registro: {{dataDeCriacao}}</p>
       </div>
     {{/each}}
   </div>
 </main>
+
