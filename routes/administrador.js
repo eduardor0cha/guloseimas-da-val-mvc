@@ -98,7 +98,7 @@ route.post("/produtos/editar", (req, res) => {
 });
 
 route.post("/produtos/criar", (req, res) => {
-  var produto = new Produto({
+  const produto = new Produto({
     nome: req.body.nome,
     descricao: req.body.descricao,
     sabor: req.body.sabor,
