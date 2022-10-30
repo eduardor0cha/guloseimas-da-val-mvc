@@ -104,10 +104,9 @@ route.post("/produtos/criar", (req, res) => {
     sabor: req.body.sabor,
     preco: req.body.preco,
     estoque: req.body.estoque,
-    exibirAoCliente: req.body.exibirAoCliente,
+    exibirAoCliente: req.body.exibirAoCliente == "on" ? true : false,
     dataDeCriacao: req.body.dataDeCriacao,
   });
-
   produto.save((err, doc) => {
     if (!err) {
       console.log("produto criado!");
