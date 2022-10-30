@@ -107,14 +107,17 @@ route.post("/produtos/criar", (req, res) => {
     exibirAoCliente: req.body.exibirAoCliente == "on" ? true : false,
     dataDeCriacao: req.body.dataDeCriacao,
   });
-  produto.save((err, doc) => {
-    if (!err) {
+
+  produto
+    .save()
+    .then(() => {
       console.log("produto criado!");
       res.redirect("/admin/produtos");
-    } else {
+    })
+    .catch((erro) => {
       console.log("Erro ao criar produto: " + err);
-    }
-  });
+      res.redirect("/admin/produtos");
+    });
 });
 
 route.get("/produtos/:id", (req, res) => {
