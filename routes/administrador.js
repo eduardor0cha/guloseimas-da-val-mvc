@@ -97,6 +97,33 @@ route.post("/produtos/editar", (req, res) => {
     });
 });
 
+route.post("/admin/produtos/criar", (req, res) => {
+  var produto = new Produto({
+    nome: req.body.nome,
+    descricao: req.body.descricao,
+    sabor: req.body.sabor,
+    preco: req.body.preco,
+    estoque: req.body.estoque,
+    exibirAoCliente: req.body.exibirAoCliente,
+    dataDeCriacao: req.body.dataDeCriacao,
+  });
+
+  produto.save((err, doc) => {
+    if (!err) {
+      console.log("produto criado!");
+      res.redirect("/admin/produtos");
+    } else {
+      console.log("Erro ao criar produto: " + err);
+    }
+  });
+});
+
+route.get("/produtos/:id", (req, res) => {
+  Produto.findOne({ _id: req.body.id })
+    .lean()
+    .then((produto) => res.render("produtos/produto", produto));
+});
+
 route.get("/teste", (req, res) => {
   res.send("Rota de administrador teste funciona! ");
 });
