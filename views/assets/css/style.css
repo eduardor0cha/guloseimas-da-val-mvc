@@ -1,3 +1,134 @@
 * {
-    background-color: rgb(255, 188, 188);
+    /* background-color: rgb(255, 188, 188); */
+    /* border: 1px solid black; */
+    margin: 0;
+    text-align: center;
+}
+
+body{
+    background-color: rgb(255, 188, 188);  
+    margin:0;
+}
+
+.body{
+    margin-left: 8.8rem;
+    margin-right: 8.8rem;
+    display:flex; 
+    flex-direction:column;
+    min-height: 100vh;
+}
+
+.body h1{
+    flex:1;
+}
+
+/* Navbar */
+
+.nav-main{
+    display: flex;
+    justify-content: space-between;
+    background-color: grey;
+    height: 5rem;
+    position: relative;
+}
+
+.nav-paginas, .nav-sobre, .nav-paginas h4, .nav-sobre p{
+    display: flex;
+    flex: 50%;
+    margin-left: 2%;
+    margin-right: 2%;
+    gap: 10%;
+    padding: 2% 0;
+    font-size: 1rem;
+    color: rgb(60, 60, 60);
+}
+
+.nav-paginas, .nav-paginas h4{
+    justify-content: start;
+}
+
+
+.nav-sobre{
+    justify-content:end;
+}
+
+.nav-sobre p{
+   width: max-content;
+   justify-content: center;
+}
+
+a, i:link { text-decoration: none; }
+
+
+a, i:visited { text-decoration: none; color: rgb(60, 60, 60); }
+
+
+a, i:hover { text-decoration: none; }
+
+
+a, i:active { text-decoration: none; }
+
+/* Logo */
+
+.circulo-logo{
+    display: inline-block;
+    border-radius: 100%;
+    background-color: azure;
+    width: fit-content;
+    width: 8rem;
+    height: 7rem;
+    vertical-align: middle;
+    margin: -10rem;
+    position: relative;
+    border: 1px solid black;
+}
+
+/* Título do Site */
+
+.titulo{
+    margin-top: 5rem;
+    padding-bottom: 2rem;
+}
+
+
+
+/* Footer */
+
+footer{
+    min-height:50px;
+    margin-top: auto;
+}
+
+.footer-main{
+    display: block;
+    background-color: grey;
+    height: fit-content;
+    justify-content: center;
+    
+}
+
+.footer-icons{
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.footer-addresses{
+    padding: 1.5rem;
+}
+
+.footer-addresses ul, li a{
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    text-decoration: none;
+    list-style: none;
+    color:rgb(60, 60, 60)
+}
+
+.footer-baseboard{
+    font-size: 0.8rem;
+    padding-bottom: 1rem;
+    color: rgb(60, 60, 60)
 }
