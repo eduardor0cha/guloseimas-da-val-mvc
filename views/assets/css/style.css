@@ -1,24 +1,32 @@
 * {
     /* background-color: rgb(255, 188, 188); */
-    /* border: 1px solid black; */
+    /*border: 1px solid black;*/
     margin: 0;
     text-align: center;
 }
 
+html{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 body{
     background-color: rgb(255, 188, 188);  
-    margin:0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.body{
+.main{
     margin-left: 8.8rem;
     margin-right: 8.8rem;
-    display:flex; 
-    flex-direction:column;
-    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-.body h1{
+.main h1{
     flex:1;
 }
 
@@ -38,7 +46,8 @@ body{
     margin-left: 2%;
     margin-right: 2%;
     gap: 10%;
-    padding: 2% 0;
+    /* padding: 2% 0; */
+    align-items: center;
     font-size: 1rem;
     color: rgb(60, 60, 60);
 }
@@ -78,7 +87,7 @@ a, i:active { text-decoration: none; }
     width: 8rem;
     height: 7rem;
     vertical-align: middle;
-    margin: -10rem;
+    margin-top: -3rem;
     position: relative;
     border: 1px solid black;
 }
@@ -86,7 +95,6 @@ a, i:active { text-decoration: none; }
 /* Título do Site */
 
 .titulo{
-    margin-top: 5rem;
     padding-bottom: 2rem;
 }
 
@@ -96,15 +104,15 @@ a, i:active { text-decoration: none; }
 
 footer{
     min-height:50px;
-    margin-top: auto;
+    position:static;
 }
 
 .footer-main{
     display: block;
     background-color: grey;
     height: fit-content;
-    justify-content: center;
-    
+    /* justify-content: center; */
+    justify-content: flex-end;
 }
 
 .footer-icons{

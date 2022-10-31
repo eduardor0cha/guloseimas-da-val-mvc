@@ -7,7 +7,7 @@ const Produto = mongoose.model("produtos");
 /* o famoso mock. de mentirinha! */
 const produtosDeMentirinha = [
   {
-    nome: "bolo moranguinho",
+    nome: "bolo de murango",
     descricao: "o favorito do pica-pau",
     sabor: "morango",
     preco: "30",
