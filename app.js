@@ -44,9 +44,9 @@ app.get("/home", (req, res) => {
   res.render("home");
 });
 
-Produto.find().lean().then((produtos)=>{
-  res.render("produto", { produtos })
-})
+// Produto.find().lean().then((produtos)=>{
+//   res.render("produto", { produtos })
+// })
 
 
 app.use("/admin", administrador);
