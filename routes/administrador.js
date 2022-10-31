@@ -97,6 +97,35 @@ route.post("/produtos/editar", (req, res) => {
     });
 });
 
+route.post("/produtos/criar", (req, res) => {
+  const produto = new Produto({
+    nome: req.body.nome,
+    descricao: req.body.descricao,
+    sabor: req.body.sabor,
+    preco: req.body.preco,
+    estoque: req.body.estoque,
+    exibirAoCliente: req.body.exibirAoCliente == "on" ? true : false,
+    dataDeCriacao: req.body.dataDeCriacao,
+  });
+
+  produto
+    .save()
+    .then(() => {
+      console.log("produto criado!");
+      res.redirect("/admin/produtos");
+    })
+    .catch((erro) => {
+      console.log("Erro ao criar produto: " + err);
+      res.redirect("/admin/produtos");
+    });
+});
+
+route.get("/produtos/:id", (req, res) => {
+  Produto.findOne({ _id: req.body.id })
+    .lean()
+    .then((produto) => res.render("produtos/produto", produto));
+});
+
 route.get("/teste", (req, res) => {
   res.send("Rota de administrador teste funciona! ");
 });
