@@ -44,6 +44,10 @@ app.get("/home", (req, res) => {
   res.render("home");
 });
 
+Produto.find().lean().then((produtos)=>{
+  res.render("produtos", { produtos })
+});
+
 app.use("/admin", administrador);
 app.use("/user", usuario);
 

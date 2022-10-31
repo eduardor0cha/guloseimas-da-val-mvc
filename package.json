@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "export NODE_ENV=production && node app.js",
+    "dev": "set NODE_ENV=production && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +21,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
-    "mongoose": "^6.6.7"
+    "mongoose": "^6.6.7",
+    "node": "^19.0.0"
   }
 }
