@@ -3,6 +3,14 @@ const route = express();
 const mongoose = require("mongoose");
 require("../models/Produto");
 const Produto = mongoose.model("produtos");
+const Handlebars = require("express-handlebars");
+const dayjs = require("dayjs");
+
+const hbs = Handlebars.create({});
+
+hbs.handlebars.registerHelper("formatDate", function (date) {
+  return dayjs(date.toString()).format("DD/MM/YYYY");
+});
 
 /* o famoso mock. de mentirinha! */
 const produtosDeMentirinha = [
