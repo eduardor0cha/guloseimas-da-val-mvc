@@ -25,7 +25,7 @@ mongoose
   .connect(
     banco.mongoURI != null
       ? banco.mongoURI
-      : "mongodb://localhost/guloseimas-da-val"
+      : "mongodb+srv://nossouser:nossasenha123@cluster0.muxyzuo.mongodb.net/guloseimas-da-val-database?retryWrites=true&w=majority"
   )
   .then(() => {
     /* pode ser o link ou o db.mongoURI */
@@ -53,7 +53,6 @@ app.get("/home", (req, res) => {
 // Produto.find().lean().then((produtos)=>{
 //   res.render("produto", { produtos })
 // })
-
 
 app.use("/admin", administrador);
 app.use("/user", usuario);
