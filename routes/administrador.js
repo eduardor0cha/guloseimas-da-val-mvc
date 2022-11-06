@@ -5,6 +5,7 @@ require("../models/Produto");
 const Produto = mongoose.model("produtos");
 const Handlebars = require("express-handlebars");
 const dayjs = require("dayjs");
+const envio = require("../middleware/envio");
 
 const hbs = Handlebars.create({});
 
@@ -103,6 +104,15 @@ route.post("/produtos/editar", (req, res) => {
       console.log("Erro ao editar produto: " + erro);
       res.redirect("/produtos");
     });
+});
+
+route.post("/produtos/imagem", envio.single("file"), (req, res) => {
+  if (req.file === undefined)
+    return res.send("Você precisa enviar um arquivo.");
+
+  const imgUrl = `http://localhost:${9130}/arquivo/${req.file.filename}`;
+
+  return res.send(imgUrl);
 });
 
 route.post("/produtos/criar", (req, res) => {

@@ -7,6 +7,7 @@ const usuario = require("./routes/usuario");
 const mongoose = require("mongoose");
 gerarArquivoDeBanco();
 const banco = require("./config/banco");
+const Grid = require("gridfs-stream");
 
 /* configuração para converter o body da requisição para json (body-parser descontinuado) */
 app.use(express.json());
@@ -18,6 +19,7 @@ app.engine("handlebars", engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 /* Configuração de MongoDB e Mongoose */
+let gfs;
 mongoose.Promise = global.Promise;
 mongoose
   .connect(
@@ -28,6 +30,10 @@ mongoose
   .then(() => {
     /* pode ser o link ou o db.mongoURI */
     console.log("Conectado ao banco de dados MongoDB!");
+
+    const conn = mongoose.connection;
+    gfs = Grid(conn.db, mongoose.mongo);
+    gfs.collection("imagens");
   })
   .catch((err) => {
     console.log(
@@ -51,6 +57,25 @@ app.get("/home", (req, res) => {
 
 app.use("/admin", administrador);
 app.use("/user", usuario);
+
+app.get("/arquivo/:filename", async (req, res) => {
+  try {
+    const file = await gfs.files.findOne({ filename: req.params.filename });
+    const readStream = gfs.createReadStream({ filename: file.filename });
+    readStream.pipe(res);
+  } catch (erro) {
+    res.send("Arquivo não encontrado.");
+  }
+});
+
+app.delete("/arquivo/:filename", async (req, res) => {
+  try {
+    await gfs.files.deleteOne({ filename: req.params.filename });
+    res.send("Arquivo excluído com sucesso.");
+  } catch (erro) {
+    res.send("Erro ao excluir o arquivo.");
+  }
+});
 
 /* Função que gera arquivo de configuração de banco */
 function gerarArquivoDeBanco() {
