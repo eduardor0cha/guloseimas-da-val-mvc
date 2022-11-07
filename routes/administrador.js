@@ -87,8 +87,9 @@ route.post("/produtos/editar", (req, res) => {
       produto.sabor = req.body.sabor;
       produto.preco = req.body.preco;
       produto.estoque = req.body.estoque;
-      produto.exibirAoCliente = req.body.exibirAoCliente;
-      produto.dataDeCriacao = req.body.dataDeCriacao;
+      (produto.exibirAoCliente =
+        req.body.exibirAoCliente == "on" ? true : false),
+        (produto.dataDeCriacao = req.body.dataDeCriacao);
       produto
         .save()
         .then(() => {
@@ -101,7 +102,7 @@ route.post("/produtos/editar", (req, res) => {
     })
     .catch((erro) => {
       console.log("Erro ao editar produto: " + erro);
-      res.redirect("/produtos");
+      res.redirect("/admin/produtos");
     });
 });
 
@@ -136,6 +137,19 @@ route.get("/produtos/:id", (req, res) => {
 
 route.get("/teste", (req, res) => {
   res.send("Rota de administrador teste funciona! ");
+});
+
+route.post("/produtos/deletar", (req, res) => {
+  console.log("id do produto: " + req.body.id);
+  Produto.deleteOne({ _id: req.body.id })
+    .then(() => {
+      console.log("Produto deletado com sucesso!");
+      res.redirect("/admin/produtos");
+    })
+    .catch((erro) => {
+      console.log("Não foi possível deletar produto!");
+      res.redirect("/admin/produtos");
+    });
 });
 
 module.exports = route;
