@@ -8,10 +8,11 @@
       width: 50%;
       display: grid;
       grid-template-columns: 50% 50%;
-      column-gap: 10px;
+      column-gap: 10rem;
       text-align: center;
       position: relative;
       justify-content: center;
+      justify-items: center;
       margin: auto ;
       grid-row-gap: 1em;
       padding: 5%;
@@ -19,7 +20,7 @@
 
     .card-produto {
       border-radius: 2%;
-      width: 100%;
+      width: 20rem;
       background-image: linear-gradient(#ed4c76, transparent);
       background-color: #ed4c87; 
       color: #ffffff;
@@ -78,11 +79,38 @@
 
     .info-produto>p{
       font-size: 1rem; 
-    }  
+    } 
+    .flex-col {
+      display: flex;
+      flex-direction: column;
+    } 
+    .flex-row {
+      display: flex;
+      flex-direction: row;
+    }
+    .justify-center {
+      justify-content: center;
+      text-align: center;
+    }
+    .btn {
+      border: none;
+      border-radius: 20px;
+      padding: 10px;
+      margin: auto 5px auto 5px;
+    }
+    .bg-red {
+      background-color: red;
+    }
+    .bg-green {
+      background-color: green;
+    }
+    .text-white {
+      color: white;
+    }
   </style> 
 
   <h1>Produtos</h1>
-  <div class="grid-produtos">
+  <div class="grid-produtos justify-center">
     <div class="card-produto" id="card-adicionar-produto">
       <a href="/admin/produtos/novo" id="link-adicionar-produto">
         <p id="add">+</p>
@@ -101,20 +129,19 @@
           <p>exibir ao cliente: {{exibirAoCliente}}</p>
         </div>
 
-        <div class="">
+        <div class="flex-row justify-center">
           <form action="/admin/produtos/editar/{{_id}}" method="GET">
-            <button>
+            <button class="btn text-white bg-green">
               editar
             </button>
           </form>
           <form action="/admin/produtos/deletar" method="POST">
             <input type="hidden" name="id" value="{{_id}}">
-            <button>
+            <button class="btn text-white bg-red">
               deletar
             </button>
           </form>
         </div>
-        <h4>{{nome}}</h4>
       </div>
     {{/each}}
   </div>
