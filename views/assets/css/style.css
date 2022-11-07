@@ -116,13 +116,15 @@ a, i:active { text-decoration: none; }
 
 .card-descricao{
     flex: 30%;
-    display:block;
+    display:flex;
 }
 
-.descricao-2, p{
-    block-size: 70%;
+.descricao-2{
+    flex-wrap: wrap;
+}
+
+.descricao-2 p{
     font-size: 0.8rem;
-    
 }
 
 .card-imagem>img{
