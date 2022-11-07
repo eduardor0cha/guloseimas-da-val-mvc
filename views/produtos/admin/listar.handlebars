@@ -5,7 +5,8 @@
     }
     
     .grid-produtos, h1{
-      width: 50%;
+      max-width: 50rem;
+      min-width: 30rem;
       display: grid;
       grid-template-columns: 50% 50%;
       column-gap: 10px;
@@ -62,7 +63,7 @@
     }
 
     .info-produto{
-      margin: 2% 3rem 0 3rem;
+      margin: 1rem 1rem 0 1rem;
       height: 30%;
       align-items: start;
       display: flex;
@@ -98,7 +99,6 @@
           <p>Sabor: {{sabor}}</p>
           <p>Estoque: {{estoque}} </p>
           <p>Registrado em: {{formatDate dataDeCriacao}}</script></p>
-          <p>exibir ao cliente: {{exibirAoCliente}}</p>
         </div>
       </div>
     {{/each}}
