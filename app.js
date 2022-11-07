@@ -19,7 +19,6 @@ app.engine("handlebars", engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 /* Configuração de MongoDB e Mongoose */
-let gfs;
 mongoose.Promise = global.Promise;
 mongoose
   .connect(
@@ -30,10 +29,6 @@ mongoose
   .then(() => {
     /* pode ser o link ou o db.mongoURI */
     console.log("Conectado ao banco de dados MongoDB!");
-
-    const conn = mongoose.connection;
-    gfs = Grid(conn.db, mongoose.mongo);
-    gfs.collection("imagens");
   })
   .catch((err) => {
     console.log(
@@ -59,11 +54,17 @@ app.use("/user", usuario);
 
 app.get("/arquivo/:filename", async (req, res) => {
   try {
+    const conn = mongoose.connection;
+    const gridfsBucket = new mongoose.mongo.GridFSBucket(conn.db, {
+      bucketName: "imagens",
+    });
+    const gfs = Grid(conn.db, mongoose.mongo);
+    gfs.collection("imagens");
     const file = await gfs.files.findOne({ filename: req.params.filename });
-    const readStream = gfs.createReadStream({ filename: file.filename });
+    const readStream = gridfsBucket.openDownloadStream(file._id);
     readStream.pipe(res);
   } catch (erro) {
-    res.send("Arquivo não encontrado.");
+    res.send("Arquivo não encontrado");
   }
 });
 

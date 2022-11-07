@@ -106,16 +106,21 @@ route.post("/produtos/editar", (req, res) => {
     });
 });
 
-route.post("/produtos/imagem", envio.single("file"), (req, res) => {
+/*route.post("/produtos/imagem", envio.single("file"), (req, res) => {
   if (req.file === undefined)
     return res.send("Você precisa enviar um arquivo.");
 
   const imgUrl = `http://localhost:${9130}/arquivo/${req.file.filename}`;
 
   return res.send(imgUrl);
-});
+});*/
 
-route.post("/produtos/criar", (req, res) => {
+route.post("/produtos/criar", envio.single("image"), async (req, res) => {
+  if (req.file === undefined)
+    return res.send("Você precisa enviar um arquivo.");
+
+  const imgUrl = `http://localhost:${9130}/arquivo/${req.file.filename}`;
+
   const produto = new Produto({
     nome: req.body.nome,
     descricao: req.body.descricao,
@@ -124,6 +129,7 @@ route.post("/produtos/criar", (req, res) => {
     estoque: req.body.estoque,
     exibirAoCliente: req.body.exibirAoCliente == "on" ? true : false,
     dataDeCriacao: req.body.dataDeCriacao,
+    imgUrl: imgUrl,
   });
 
   produto

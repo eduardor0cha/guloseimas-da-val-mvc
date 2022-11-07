@@ -1,4 +1,4 @@
-<form action="/admin/produtos/criar" method="POST">
+<form action="/admin/produtos/criar" method="POST" enctype="multipart/form-data">
   <input
     value=""
     name="id"
@@ -17,5 +17,6 @@
     checked="checked"
     placeholder="exibir ao cliente"
   />
+  <input id="image" name="image" type="file" accept="image/jpeg, image/png"/>
   <button type="submit">salvar</button>
 </form>
