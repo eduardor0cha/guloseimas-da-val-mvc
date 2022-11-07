@@ -24,6 +24,7 @@ body{
     display:flex;
     flex-direction: column;
     flex-grow: 1;
+    border: 1px solid black;
 }
 
 .main h1{
@@ -98,7 +99,37 @@ a, i:active { text-decoration: none; }
     padding-bottom: 2rem;
 }
 
+/* Produtos usuário */
 
+.grid-produtos{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.card-produtos{
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.card-descricao{
+    flex: 30%;
+    display:block;
+}
+
+.descricao-2, p{
+    block-size: 70%;
+    font-size: 0.8rem;
+    
+}
+
+.card-imagem>img{
+    flex: 70%;
+    width: 100%;
+    height: 60%;
+}
 
 /* Footer */
 

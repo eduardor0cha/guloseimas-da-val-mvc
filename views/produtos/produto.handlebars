@@ -1,3 +1,19 @@
 <main>
-    <p>produto</p> 
+    <div class="grid-produtos">
+       {{#each produtos }}
+            <div class="card-produtos">
+                <div class="card-descricao">
+                    <p>Nome: {{nome}}</p>
+                    <div class="descricao-2">
+                        <p>Sabor: {{sabor}}</p>
+                        <p>Descrição: {{descricao}}</p>
+                    </div>
+                </div>
+                <div class="card-imagem">
+
+                    <img src="https://blog.pajaris.com.br/wp-content/uploads/2021/05/copo-da-felicidade-de-brownie-1024x1024.jpg" alt="">
+                </div>
+            </div>
+        {{/each}}
+    </div>
 </main>
