@@ -6,8 +6,10 @@ const administrador = require("./routes/administrador");
 const usuario = require("./routes/usuario");
 const mongoose = require("mongoose");
 gerarArquivoDeBanco();
-const banco = require("./config/banco");
 const Grid = require("gridfs-stream");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 /* configuração para converter o body da requisição para json (body-parser descontinuado) */
 app.use(express.json());
@@ -21,11 +23,7 @@ app.set("view engine", "handlebars");
 /* Configuração de MongoDB e Mongoose */
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(
-    banco.mongoURI != null
-      ? banco.mongoURI
-      : "mongodb+srv://nossouser:nossasenha123@cluster0.muxyzuo.mongodb.net/guloseimas-da-val-database?retryWrites=true&w=majority"
-  )
+  .connect(process.env.DB_URL)
   .then(() => {
     /* pode ser o link ou o db.mongoURI */
     console.log("Conectado ao banco de dados MongoDB!");
